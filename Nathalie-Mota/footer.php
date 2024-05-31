@@ -9,23 +9,26 @@
 
 ?>
 
-<footer id="footer">
-		<?php 
-			// Affichage du menu footer déclaré dans functions.php
-			wp_nav_menu(array('theme_location' => 'footer')); 
-		?>		
-		<!-- Ajout du widget dans le pied de page -->	
-		<aside id="widget-area" >
-			<?php dynamic_sidebar( 'footer-widget' ); ?>
-		</aside>
-	</footer>
+<?php
+get_template_part('template-parts/contact');
+?>
 
-	<!-- Lance la popup contact -->
-	<?php 
-        get_template_part ( 'template-parts/modal/contact'); 		
-    ?>
+<footer id="site-footer">
+	<div class="navigation-footer">
+		<!-- Lance la popup contact -->
+		<?php
+		// Affichage du menu footer déclaré dans functions.php
+		wp_nav_menu(array('theme_location' => 'footer'));
+		?>
+	</div>
+	<!-- Ajout du widget dans le pied de page -->
+	<aside id="widget-area">
+		<?php dynamic_sidebar('footer-widget'); ?>
+	</aside>
+</footer>
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
