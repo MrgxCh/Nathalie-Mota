@@ -5,7 +5,190 @@ Theme Name: Nathalie-Mota
 Theme URI: https://wordpress.org/themes/Nathalie-Mota/
 Author: MrgxCh
 Author URI: https://wordpress.org/
-Description: Nathalie-Mota is a website for a freelance photographer to share her photographies and to contact her.
+Description: Nathalie-Mota est un site pour une photographe professionnelle dans l’événementiel. 
 Requires at least: 5.3
 Text Domain: Nathalie-Mota
 */
+
+/*Header and footer*/
+
+/*header container*/
+#site-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+
+/*footer container*/
+#site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-top: 1px solid black;
+}
+
+/*logo header*/
+.logo img{
+    width: 100%;
+}
+
+/*menus*/
+.navigation li,
+.navigation-footer li, #myBtn {
+    display: flex;
+    list-style: none;
+    font-family: "Space Mono", monospace;
+    margin-right: 60px;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 400;
+    background-color: transparent;
+    border: none;
+}
+
+/*text menus*/
+.navigation li a,
+.navigation-footer li a {
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+}
+
+/*menus container*/
+.navigation ul,
+.navigation-footer ul {
+    display: flex;
+    flex-direction: row;
+}
+
+/*hover text*/
+.navigation li:hover,
+.navigation-footer li:hover, #myBtn:hover{
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/*MODALE: popup contact*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    height: 97%;
+    width: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 31%;
+    height: 80%;
+    border: solid 5px black;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*MODIFICATION FORM*/
+
+/*image contact form*/
+.image-header-contact{
+    width: 100%;
+}
+
+/*label*/
+.wpcf7-text{
+    height: 38px;
+}
+
+/*text area*/
+.modal-content textarea{
+    height: 210px;
+}
+
+/*Bouton envoyer*/
+.wpcf7-submit{
+    height: 38px;
+    background-color: #D8D8D8;
+    height: 50px;
+    border: solid 1px #B8BBC2;
+    width: 90%;
+    font-family: "Space Mono";
+}
+
+.wpcf7-submit:hover{
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+}
+
+/*form container*/
+.modal-content textarea, .wpcf7-text{
+    border-radius: 8px;
+    border: solid 1px #B8BBC2;
+    width: 90%;
+}
+
+form label{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 0.7em;
+}
+
+/*form*/
+#wpcf7-f36-o1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*MOBILE: responsive header/footer*/
+@media screen and (max-width: 768px) {
+
+    #site-footer{
+        display: flex;
+        border: solid 2px blue;
+        height: 120px;
+        width: 100%;
+    }
+
+    .navigation-footer ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+        padding-top: 10px;
+        line-height: 40px;
+    }
+
+    .logo img{
+        width: 9em;
+        margin-right: 30px;
+    }
+}
