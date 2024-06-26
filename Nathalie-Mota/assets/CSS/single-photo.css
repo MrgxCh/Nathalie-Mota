@@ -1,0 +1,92 @@
+/*CONTENT SINGLE-PHOTO*/
+
+/*CONTENT: image*/
+
+.photo-content {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 1190px;
+    margin: auto;
+}
+
+.right-container {
+    position: relative;
+    display: flex;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 70%;
+    margin-left: 10px;
+}
+
+.photo-image img{
+    width: 100%;
+    height: 100%;
+    margin-top: 2vw;
+}
+
+/*CONTENT: text*/
+.left-container {
+    width: 42vw;
+    align-content: flex-end;
+    border-bottom: solid 1px black
+}
+
+.left-content{
+    justify-content: flex-end;
+    display: block;
+}
+
+.left-content p, .photo-year{
+    font-family: "Space Mono";
+    text-transform: capitalize;
+    font-size: 1em;
+    height: 1.5vw;
+}
+
+.post h2{
+    font-family: "Space Mono";
+    font-style: italic;
+    color: #23282d;
+    font-weight: 400;
+    font-size: 3vw;
+    line-height: 58px;
+    width: 60%;
+}
+
+
+/*CONTENT: bouton contact*/
+
+/*CONTENT: container*/
+.right-contact{
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1190px;
+    position: relative;
+    height: 118px;
+    border: solid 2px orange;
+}
+
+.right-contact p{
+    font-family: "Space Mono";
+    font-size: 1.5vh;
+}
+
+#button-contact-photo{
+    font-family: "Space Mono";
+    background-color: #D8D8D8;
+    border: none;
+    border-radius: 2px;
+    width: 12vw;
+    height: 5.5vh;
+    cursor: pointer;
+}
+
+#button-contact-photo:hover{
+    background-color: black;
+    transition: ease-in 0.4s;
+    color: white;
+}
