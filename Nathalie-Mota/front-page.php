@@ -9,10 +9,9 @@
  *
  */
 
-get_header();
-?>
+get_header();?>
 
+<?php get_template_part('template-parts/hero');?>
 
-<?php
-get_footer();
-?>
+<?php get_template_part('template-parts/photo-block');?>
+<?php get_footer(); ?>

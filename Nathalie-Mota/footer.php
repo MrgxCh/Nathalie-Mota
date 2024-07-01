@@ -21,10 +21,7 @@ get_template_part('template-parts/contact');
 		wp_nav_menu(array('theme_location' => 'footer'));
 		?>
 	</div>
-	<!-- Ajout du widget dans le pied de page -->
-	<aside id="widget-area">
-		<?php dynamic_sidebar('footer-widget'); ?>
-	</aside>
+	
 </footer>
 
 <?php wp_footer(); ?>
