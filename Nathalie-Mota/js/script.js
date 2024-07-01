@@ -34,6 +34,7 @@ photoSpan.onclick = function () {
   photomodal.style.display = "none";
 }
 
+//Récupere l'id reference quand boutton contact est cliqué
 jQuery(document).ready(function ($) {
   var refPhotoValue = photoBtn.dataset.reference;
   $("#refPhoto").val(refPhotoValue);

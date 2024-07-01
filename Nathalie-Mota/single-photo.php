@@ -128,7 +128,7 @@ get_header(); ?>
                     <?php echo get_the_post_thumbnail($prev_post_id, array(77, 60)); ?>
                 </div>
                 <?php
-                echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-gauche.png" alt="article précédent" ></a>';
+                echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-gauche.png" alt="article précédent"  class="navigation-prev"></a>';
             }
         } ?>
     </div>
@@ -145,7 +145,7 @@ get_header(); ?>
                 <div><?php echo get_the_post_thumbnail($next_post_id, array(77, 60)); ?></div>
                 <?php
             }
-            echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-droite.png" alt="article suivante" ></a>';
+            echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-droite.png" alt="article suivante" class="navigation-next"></a>';
         }
         ?>
     </div>
@@ -153,6 +153,42 @@ get_header(); ?>
 
 <div class="photos-apparentes">
     <h3 class="photo-apparentes-title">VOUS AIMEREZ AUSSI</h3>
+
+    <div class="affichage-photos">
+        <?php
+        $current_category_slugs = array();
+        $categories = get_the_terms($post_id, $taxonomy);
+
+        if ($categories && !is_wp_error($categories)) {
+            foreach ($categories as $category) {
+                $current_category_slugs[] = $category->slug;
+            }
+        }
+        $args = array(
+            'post_type' => 'photo',
+            'posts_per_page' => 2,
+            'orderby' => 'rand',
+            'post__not_in' => array($post_id), // Exclude current post
+            'tax_query' => array(
+                array(
+                    'taxonomy' => $taxonomy, // Name of the taxonomy
+                    'field' => 'slug', // Use 'slug' as $current_category_slugs contains slugs
+                    'terms' => $current_category_slugs,
+                ),
+            ),
+        );
+
+        $the_query = new WP_Query($args);
+
+        if ($the_query->have_posts())
+            while ($the_query->have_posts()) {
+                $the_query->the_post();
+                echo get_the_post_thumbnail(get_the_ID(), 'large');
+            }
+        wp_reset_postdata();
+
+        ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>
