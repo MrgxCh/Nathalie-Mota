@@ -23,6 +23,7 @@ get_header(); ?>
                     <div class="photo-image">
                         <?php if (has_post_thumbnail()): ?>
                             <?php the_post_thumbnail('large'); ?>
+
                         <?php endif; ?>
 
                         <!-- Post Content -->
@@ -110,11 +111,13 @@ get_header(); ?>
 <div class="right-contact">
     <p>Cette photo vous intéresse ?</p>
 
+    <!--Bouton contact avec reference photo (data-reference)-->
     <button id="button-contact-photo" data-reference="<?php echo $reference; ?>">Contact</button>
     <?php
     get_template_part('template-parts/contact');
     ?>
 
+    <!--Bouton navigation précédente-->
     <div class="site-navigation-prev">
         <?php
         $prev_post = get_previous_post();
@@ -132,6 +135,8 @@ get_header(); ?>
             }
         } ?>
     </div>
+
+    <!--Bouton navigation suivante-->
     <div class="site-navigation-next">
         <!-- next_post_link( '%link', '%title', false );  -->
         <?php
@@ -151,11 +156,16 @@ get_header(); ?>
     </div>
 </div>
 
+
+<!--Zone photos dans l'affichage d'un post-->
 <div class="photos-apparentes">
     <h3 class="photo-apparentes-title">VOUS AIMEREZ AUSSI</h3>
 
+    <!--Récupération des posts de la même catégorie grâce au slug-->
+
     <div class="affichage-photos">
         <?php
+
         $current_category_slugs = array();
         $categories = get_the_terms($post_id, $taxonomy);
 
@@ -164,30 +174,34 @@ get_header(); ?>
                 $current_category_slugs[] = $category->slug;
             }
         }
+
         $args = array(
-            'post_type' => 'photo',
-            'posts_per_page' => 2,
+            'post_type' => 'photo',//nom CPT UI du post
+            'posts_per_page' => 2,//nombre de posts affichés
             'orderby' => 'rand',
-            'post__not_in' => array($post_id), // Exclude current post
+            'post__not_in' => array($post_id), //Exclus post affiché
             'tax_query' => array(
                 array(
-                    'taxonomy' => $taxonomy, // Name of the taxonomy
-                    'field' => 'slug', // Use 'slug' as $current_category_slugs contains slugs
+                    'taxonomy' => $taxonomy,// ACF Taxonomy
+                    'field' => 'slug',
                     'terms' => $current_category_slugs,
                 ),
             ),
         );
 
-        $the_query = new WP_Query($args);
+        $the_query = new WP_Query($args); ?>
 
+        <?php
         if ($the_query->have_posts())
             while ($the_query->have_posts()) {
-                $the_query->the_post();
-                echo get_the_post_thumbnail(get_the_ID(), 'large');
+                $the_query->the_post(); ?>
+                <a href="<?php the_permalink(); ?>">
+                    <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+                        <?php
             }
         wp_reset_postdata();
-
         ?>
+        </a>
     </div>
 </div>
 
