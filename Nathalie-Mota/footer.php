@@ -26,6 +26,8 @@ get_template_part('template-parts/contact');
 
 <?php wp_footer(); ?>
 
+<?php get_template_part('template-parts/lightbox');?>
+
 </body>
 
 </html>

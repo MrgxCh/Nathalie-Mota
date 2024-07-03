@@ -7,20 +7,23 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php
 
-<div class="main page">
+get_header(); ?>
 
-	<?php if (have_posts()): while (have_posts()): the_post(); ?>
+<main class="main-page">
+	<div class="container-page">
+    <?php
+    
+    while ( have_posts() ) : the_post();
 
-		<h1 class="post-title"><?php get_the_title(); ?></h1>
-			<div class="post-content">
-					<?php the_content(); ?>
-				</div>
+        the_content();
 
-		<?php endwhile; ?>
-	<?php endif; ?>
+    endwhile; ?>
+	</div>
+</main>
 
-</div>
+<?php
 
-<?php get_sidebar();  get_footer(); 
+get_footer();
+?>

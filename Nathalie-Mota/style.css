@@ -18,6 +18,7 @@ Text Domain: Nathalie-Mota
     justify-content: space-around;
     align-items: center;
     height: 3.5vw;
+    max-width: 1440px;
     display: flex;
     margin: auto;
     position: relative;
@@ -46,7 +47,7 @@ Text Domain: Nathalie-Mota
     list-style: none;
     font-family: "Space Mono", monospace;
     margin-right: 60px;
-    font-size: 16px;
+    font-size: 0.8vw;
     text-align: left;
     font-weight: 400;
     background-color: transparent;
@@ -214,6 +215,7 @@ form label {
     text-align: center;
 }
 
+
 /*MOBILE: responsive header/footer*/
 @media screen and (max-width: 768px) {
 
@@ -242,6 +244,13 @@ form label {
         line-height: 40px;
     }
 
+    .navigation li,
+    .navigation-footer li,
+    #myBtn {
+        font-size: 2.4vw;
+
+    }
+
     .logo img {
         width: 9em;
         margin-right: 30px;
@@ -259,7 +268,10 @@ form label {
         font-size: 0.8em;
     }
 
-    .wpcf7 label, .wpcf7-text, .wpcf7-textarea, .wpcf7-submit{
+    .wpcf7 label,
+    .wpcf7-text,
+    .wpcf7-textarea,
+    .wpcf7-submit {
         margin-left: 12vw;
     }
 
