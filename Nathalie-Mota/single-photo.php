@@ -195,14 +195,14 @@ get_header(); ?>
         if ($the_query->have_posts())
             while ($the_query->have_posts()) {
                 $the_query->the_post(); ?>
-                <a href="<?php the_permalink(); ?>">
-                    <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
-                        <?php
+                <?php get_template_part('template-parts/lightbox-single-photo');?>
+            </div>
+            <?php
             }
         wp_reset_postdata();
         ?>
-        </a>
-    </div>
+    </a>
+</div>
 </div>
 
 <?php get_footer(); ?>

@@ -5,7 +5,7 @@ const $loadMoreButton = $('#load-more');
 const $container = $('.gallerie'); 
 
 $loadMoreButton.on('click', function () {
-    get_more_posts(true) // Obtient plus de publications quand boouton est cliqué
+    get_more_posts(true) // Obtient plus de publications quand bouton est cliqué
 });
 
 function get_more_posts(load) {
@@ -20,6 +20,10 @@ function get_more_posts(load) {
 
     $.ajax({
         type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
         url: wp_data.ajax_url, // Défini dans functions.php
         data: {
             action: 'load_more_posts',
@@ -71,3 +75,4 @@ if ($('#format-filter').length) {
 if ($('#date-sort').length) {
     recursive_change('date-sort'); // Applique la fonction de changement aux filtres de tri par date
 }
+

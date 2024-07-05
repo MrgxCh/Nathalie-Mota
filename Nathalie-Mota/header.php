@@ -9,7 +9,8 @@
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-?><!doctype html>
+?>
+<!Doctype html>
 <html <?php language_attributes(); ?>>
 
 <head>
@@ -36,24 +37,27 @@ if (!defined('ABSPATH')) {
 
 	<?php wp_body_open(); ?>
 
-	<header id="site-header">
-		<div class="logo">
-			<a href="<?php echo home_url('/'); ?>" aria-label="Page d'accueil de Nathalie Mota">
-				<img src="<?php echo get_template_directory_uri(); ?>./images/Logo.png"
-					alt="Logo <?php echo bloginfo('name'); ?>">
-			</a>
-		</div>
+	<header>
+		<div id="site-header">
+			<div class="logo">
+				<a href="<?php echo home_url('/'); ?>" aria-label="Page d'accueil de Nathalie Mota">
+					<img src="<?php echo get_template_directory_uri(); ?>./images/Logo.png"
+						alt="Logo <?php echo bloginfo('name'); ?>">
+				</a>
+			</div>
 
-		<!--Menu burger mobile-->
-		<div class="MenuBurger">
-			<span class="line"></span>
-			<span class="line"></span>
-			<span class="line"></span>
-		</div>
+			<!-- Menu burger Mobile -->
+			
 
-		<div class="navigation">
-			<?php
-			wp_nav_menu(array('theme_location' => 'main'));
-			?>
+			<div class="navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'main',
+					)
+				);
+				?>
+			</div>
+
 		</div>
 	</header>

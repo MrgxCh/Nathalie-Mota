@@ -1,0 +1,126 @@
+.thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99.9%;
+    height: 99.9%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.photos-container:hover .thumbnail-overlay {
+    opacity: 1;
+}
+
+.icon-eye {
+    justify-content: center;
+    display: flex;
+}
+
+.icon-eye img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    top: 46%;
+    left: 47%;
+}
+
+.icon-fullscreen img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    left: 89%;
+    top: 2%;
+}
+
+.photo-info{
+    flex-direction: row;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.photo-info-left, .photo-info-right{
+    color: white;
+    font-family: "Space Mono";
+    font-size: 13px;
+    font-weight: 200;
+    margin-top: 85%;
+}
+
+/*RESPONSIVE LIGHTBOX*/
+@media screen and (max-width: 768px) and (min-width: 621px){
+    
+.thumbnail-overlay {
+    width: 87.5%;
+    height: 95.3%;
+    margin-left: 6.3%;
+    justify-content: flex-end;
+}
+
+.icon-eye img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    position: absolute;
+    top: 42%;
+    left: 45%;
+}
+
+.icon-fullscreen img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    position: absolute;
+    left: 91%;
+    top: 2%;
+}
+
+.photo-info{
+    width: 85%;
+}
+
+.photo-info-left, .photo-info-right{
+    margin-top: 76%;
+}
+}
+
+@media screen and (max-width:620px) {
+    .thumbnail-overlay {
+        width: 88.1%;
+        height: 95.3%;
+        margin-left: 5.8%;
+        justify-content: flex-end;
+    }
+    
+    .icon-eye img {
+        width: 9vw;
+        height: 9vw;
+        object-fit: contain;
+        position: absolute;
+        top: 42%;
+        left: 45%;
+    }
+    
+    .icon-fullscreen img {
+        width: 9vw;
+        height: 9vw;
+        object-fit: contain;
+        left: 86%;
+        top: 3%;
+        position: absolute;
+    }
+    
+    .photo-info{
+        width: 85%;
+    }
+    
+    .photo-info-left, .photo-info-right{
+        margin-top: 61%;
+        font-size: 0.7em;
+    }
+}

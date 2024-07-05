@@ -1,0 +1,101 @@
+.lightbox-single {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96.7%;
+    height: 93%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.gallerie-single:hover .lightbox-single {
+    opacity: 1;
+}
+
+.icon-oeil {
+    justify-content: center;
+    display: flex;
+}
+
+.icon-oeil img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    top: 46%;
+    left: 47%;
+}
+
+.single-photo-info {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.single-info-left,
+.single-info-right {
+    color: white;
+    font-family: "Space Mono";
+    font-size: 13px;
+    font-weight: 200;
+    margin-top: 82%;
+}
+
+@media screen and (max-width: 768px) and (min-width: 621px) {
+
+    .lightbox-single {
+        width: 65vw;
+        height: 97%;
+        justify-content: flex-end;
+    }
+
+    .icon-oeil img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        position: absolute;
+        top: 42%;
+        left: 45%;
+    }
+
+    .single-photo-info {
+        width: 100%;
+    }
+
+    .single-info-left,
+    .single-info-right {
+        margin-top: 76%;
+    }
+}
+
+@media screen and (max-width:620px) {
+    .lightbox-single {
+        width: 65vw;
+        height: 97%;
+        justify-content: flex-end;
+    }
+
+    .icon-oeil img {
+        width: 9vw;
+        height: 9vw;
+        object-fit: contain;
+        position: absolute;
+        top: 42%;
+        left: 45%;
+    }
+
+    .single-photo-info {
+        width: 100%;
+    }
+
+    .single-info-left,
+    .single-info-right {
+        margin-top: 75%;
+        font-size: 0.7em;
+    }
+}

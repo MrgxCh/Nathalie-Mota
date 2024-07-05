@@ -36,7 +36,8 @@ Text Domain: Nathalie-Mota
 
 /*logo header*/
 .logo img {
-    width: 11vw;
+    width: 12em;
+    margin-right: 30px;
 }
 
 /*menus*/
@@ -47,7 +48,7 @@ Text Domain: Nathalie-Mota
     list-style: none;
     font-family: "Space Mono", monospace;
     margin-right: 60px;
-    font-size: 0.8vw;
+    font-size: 1.9vh;
     text-align: left;
     font-weight: 400;
     background-color: transparent;
@@ -74,7 +75,7 @@ Text Domain: Nathalie-Mota
 .navigation-footer li:hover,
 #myBtn:hover {
     font-family: Space Mono;
-    font-size: 16px;
+    font-size: 1.9vh;
     font-weight: 700;
     cursor: pointer;
 }
@@ -220,7 +221,7 @@ form label {
 @media screen and (max-width: 768px) {
 
     #site-header {
-        height: 7vw;
+        height: 17vw;
         width: 100%;
     }
 
@@ -240,21 +241,90 @@ form label {
         justify-content: center;
         align-items: center;
         margin-top: 0px;
-        padding-top: 10px;
-        line-height: 40px;
+        padding-top: 20px;
+        line-height: 35px;
     }
 
     .navigation li,
     .navigation-footer li,
     #myBtn {
-        font-size: 2.4vw;
+        font-size: 2.5vw;
 
     }
 
     .logo img {
-        width: 9em;
-        margin-right: 30px;
+        width: 35vw;
     }
+
+    /*MOBILE BURGER*/
+   /**  BURGER MENU  */
+  
+
+
+   .burger-menu {
+    position: relative;
+  }
+  
+  .burger-menu__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .burger-menu__icon {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+  }
+  
+  .burger-menu__icon::before,
+  .burger-menu__icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    transition: transform 0.3s ease;
+  }
+  
+  .burger-menu__icon::before {
+    top: -10px;
+  }
+  
+  .burger-menu__icon::after {
+    top: 10px;
+  }
+  
+  .burger-menu__list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .burger-menu--active .burger-menu__list {
+    display: block;
+  }
+  
+  .burger-menu--active .burger-menu__icon {
+    background-color: transparent;
+  }
+  
+  .burger-menu--active .burger-menu__icon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .burger-menu--active .burger-menu__icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  
 
     /*RESPONSIVE CONTACT FORM*/
     .modal-content {

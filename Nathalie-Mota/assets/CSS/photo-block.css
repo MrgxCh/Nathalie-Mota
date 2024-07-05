@@ -1,77 +1,42 @@
 /*CONTENT: LISTE DES PHOTOS*/
 
-.liste-photos{
-    max-width: 1126px;  
-    margin: 0 auto; 
-    text-align: center; 
+.liste-photos {
+    max-width: 1126px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.gallerie{
-    display: flex; 
-    flex-wrap: wrap;  
-    justify-content: space-between; 
-    margin-top: 20px;  
+.gallerie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.article-container{
-    flex-basis: calc(50% - 10px);   
-    margin-bottom: 20px;
+.article-container {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 10px;
 }
 
-.photos-container{
-    position: relative; 
-    overflow: hidden; 
-    padding-bottom: 100%;
+.photos-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 88%;
 }
 
-.photos-container img{
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;  
-    object-fit: cover; 
-}
-
-/*LIGHTBOX*/
-.thumbnail-overlay {
+.photos-container img {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.6); 
-    opacity: 0;  
-    display: flex;  
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center;  
-    transition: opacity 0.3s;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.thumbnail-overlay img{
-    width: 3vw; 
-    height: 3vw;  
-    object-fit: contain;
-    position: absolute;  
-    top: 50%; 
-    left: 50%;  
-    transform: translate(-50%, -50%);
-}
-
-.photos-container:hover .thumbnail-overlay {
-    opacity: 1; 
-}
-
-.icon-fullscreen{
-    position: absolute;  
-    top: 2vw;  
-    right: 2vw;
-}
 
 /*CONTENT: PAGINATION INFINIE BOUTON*/
 
-.pagination-button{
+.pagination-button {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -80,93 +45,118 @@
     align-items: center;
 }
 
-#load-more{
+#load-more {
     width: 16vw;
     height: 2.6vw;
     border: none;
     cursor: pointer;
     background-color: #D8D8D8;
     font-family: "Space Mono";
-    font-size: 0.7vw;
+    font-size: 0.9vw;
 }
 
-#load-more:hover{
+#load-more:hover {
     background-color: black;
     color: white;
 }
 
 /* FILTRES */
 .filters-and-sort {
-    max-width: 1126px; 
-    margin: 0 auto;  
-    text-align: center;  
-    /*padding-right: 25px; */ 
-    /*padding-left: 25px; */
-    padding-top: 40px; 
-    display: flex; 
+    max-width: 1126px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+    display: flex;
     justify-content: start;
 }
 
-.filters-and-sort label, .filters-and-sort select {
-    font-family: Poppins;  
-    font-size: 12px;  
-    font-weight: 500;  
-    line-height: 18px;  
-    letter-spacing: 0.03em;  
-    text-align: left;  
-    text-transform: uppercase;  
+.filters-and-sort label,
+.filters-and-sort select {
+    font-family: "Poppins";
+    font-size: 0.7em;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    text-transform: uppercase;
 }
 
-#category-filter{
+#category-filter {
     margin-right: 42px;
 }
 
-#date-sort{
+#date-sort {
     margin-left: 310px;
 }
 
 #category-filter,
 #format-filter,
-#date-sort{
-    width: 260px;  /* Largeur Filtres */
-    height: 42px;  /* Hauteur Filtres */
-    padding: 11px 18px 11px 18px;  /* Marge intérieure Filtres */
-    margin-bottom: 20px; 
-    border-radius: 8px;  /* Coins Filtres */
-    border: 1.3px solid #B8BBC2;  /* Bordure solide */
+#date-sort {
+    width: 20vw;
+    height: 45px;
+    padding: 11px 18px 11px 18px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1.3px solid #B8BBC2;
     justify-content: space-between;
 }
+
 
 /* Media query - Filtres */
 @media (max-width: 768px) {
     .filters-and-sort {
         flex-direction: column;
         align-items: center;
-        padding-bottom: 20px; 
+        padding-bottom: 20px;
     }
 
     #category-filter,
     #format-filter,
-    #date-sort{
-        margin-bottom: 0; 
-}
+    #date-sort {
+        margin-bottom: 0;
+        width: 70vw;
+    }
 
     #category-filter,
-    #date-sort{
+    #date-sort {
         margin: 10px 0;
     }
 
-}
-/* Styles for screens smaller than 768px*/
-@media (max-width: 768px) {
-    /* Supprime la disposition flex et ajuste la largeur des vignettes CPT individuelles. */
-    .thumbnail-container-accueil {
-        display: block;  /* Change la disposition en bloc pour les éléments enfants */
+    /*CONTENT: GALLERIE IMAGES*/
+
+    .gallerie {
+        flex-direction: column;
+        flex-wrap: wrap;
     }
-    .custom-post-thumbnail {
-        flex-basis: 100%;  /* Largeur totale pour la disposition en colonne unique */
+
+    .article-container {
+        flex-basis: auto;
+        margin-bottom: 10px;
     }
-    .custom-post-thumbnail {
-        margin-bottom: 10px;  /* Vous devrez peut-être ajuster les marges pour l'espacement */
+
+    .photos-container {
+        flex-direction: column;
+        padding-bottom: 3%;
     }
+
+    .photos-container img {
+        position: relative;
+        width: 85vw;
+        height: 74vw;
+        object-fit: cover;
+    }
+
+    /*Bouton load more*/
+
+    .pagination-button {
+        height: 25vw;
+    }
+
+    #load-more {
+        width: 73vw;
+        height: 12vw;
+        font-size: 3vw;
+    }
+
+
 }

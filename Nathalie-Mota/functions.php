@@ -13,7 +13,8 @@ function enqueue_custom_styles()
 	wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
 	wp_enqueue_style('single-photo', get_template_directory_uri() . '/assets/CSS/single-photo.css', array(), '1.0', 'all');
 	wp_enqueue_style('photo-block', get_template_directory_uri() . '/assets/CSS/photo-block.css', array());
-	wp_enqueue_style('lightbox-style', get_template_directory_uri() . '/assets/css/lightbox.css');
+	wp_enqueue_style('lightbox-style', get_template_directory_uri() . '/assets/CSS/lightbox.css');
+	wp_enqueue_style('lightbox-single', get_template_directory_uri() . '/assets/CSS/lightbox-single-photo.css');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
@@ -23,7 +24,7 @@ function enqueue_custom_scripts()
 {
 	wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.1', true);
 	wp_enqueue_script('photo-block', get_template_directory_uri() . '/js/photo-block.js', array('jquery'), '1.1.1', true);
-	wp_enqueue_script('script-lightbox', get_template_directory_uri() . '/assets/js/lightbox.js', array('jquery'), '1.0', true);
+	wp_enqueue_script('script-lightbox', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 

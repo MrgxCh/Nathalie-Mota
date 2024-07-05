@@ -10,9 +10,8 @@
  */
 
 get_header();?>
-
 <?php get_template_part('template-parts/hero');?>
 <?php get_template_part('template-parts/filters');?>
-
 <?php get_template_part('template-parts/photo-block');?>
+
 <?php get_footer(); ?>

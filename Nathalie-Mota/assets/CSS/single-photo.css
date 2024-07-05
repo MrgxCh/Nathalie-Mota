@@ -121,15 +121,24 @@
 
 .affichage-photos{
     display: flex;
-    justify-content: space-around;
     margin-bottom: 8%;
+    height: 30vw;
+    justify-content: space-around;
 }
 
-.affichage-photos img{
-    width: 564px;
-    height: 495px;
-    object-fit: cover;
+.gallerie-single{
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
+
+.gallerie-single img{
+    width: 30vw;
+    height: 28vw;
+    object-fit: cover;
+    position: absolute;
+}
+
 
 /*RESPONSIVE: MOBILE PHOTO-SINGLE*/
 
@@ -148,14 +157,14 @@
     .post h2{
         font-family: "Space Mono";
         width: 75%;
-        height: 10vw;
-        font-size: 2em;
+        height: 15vw;
+        font-size: 7vw;
         line-height: 6vw;
     }
 
     .left-content p, .photo-year{
         font-family: "Space Mono";
-        font-size: 0.9em;
+        font-size: 3vw;
         height: 4vw;
     }
 
@@ -165,8 +174,8 @@
         flex-direction: column;
         border-top: solid 1px black;
         width: 100%;
+        height: 26vw;
         justify-content: center;
-        align-items: center;
     }
 
     .site-navigation-prev, .site-navigation-next{
@@ -175,14 +184,15 @@
 
     .right-contact p{
         font-family: "Space Mono";
-        font-size: 2vh;
-        width: 69%;
+        font-size: 3vw;
+        width: 60%;
     }
 
     #button-contact-photo{
-        width: 40%;
-        height: 5vh;
-        font-size: 1em;
+        width: 60%;
+        height: 10vw;
+        font-size: 2vh;
+        margin-left: 20%;
     }
     
     .photo-apparentes-title{
@@ -191,15 +201,22 @@
 
     .affichage-photos{
         display: flex;
+        margin-bottom: 8%;
+        height: 120vw;
         flex-direction: column;
         justify-content: space-around;
     }
+
+    .gallerie-single{
+        position: relative;
+    }
     
-    .affichage-photos img{
-        width: 60vw;
-        height: 60vw;
+    .gallerie-single img{
+        width: 65vw;
+        height: 58vw;
         object-fit: cover;
         margin-bottom: 5%;
+        position: absolute;
     }
 }
 
