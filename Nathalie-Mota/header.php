@@ -1,13 +1,13 @@
 <?php
-/**
- * Template for displaying the header
- * 
- * @package Wordpress
- * @subpackage Nathalie-Mota
+/* 
+ * Template for displaying the header 
+ *
+ * @package Wordpress * @subpackage Nathalie-Mota *
  */
-
-if (!defined('ABSPATH')) {
-	exit; // Exit if accessed directly.
+if
+(!defined('ABSPATH')) {
+	exit;
+	// Exit if accessed directly. 
 }
 ?>
 <!Doctype html>
@@ -47,17 +47,26 @@ if (!defined('ABSPATH')) {
 			</div>
 
 			<!-- Menu burger Mobile -->
-			
-
-			<div class="navigation">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'main',
-					)
-				);
-				?>
+			<div class="container-menu" onclick="Open(this)">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
 			</div>
 
+			<div class="nav">
+			<?php wp_nav_menu(array(
+			'theme_location' => 'main',
+			'container' => false,
+			'menu_class' => 'nav-menu',
+			));?>
+			</div>
+
+
+			<!--Navigation menu desktop-->
+			<nav class="navigation">
+
+			<?php wp_nav_menu(array('theme_location' => 'main'));?>
+			</nav>
 		</div>
+
 	</header>

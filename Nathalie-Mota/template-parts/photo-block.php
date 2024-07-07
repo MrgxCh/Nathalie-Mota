@@ -20,7 +20,6 @@
                         <?php the_post_thumbnail(); ?>
                         <!-- Section | hover lightbox -->
                         <?php $post_id = get_the_ID(); ?>
-                        <?php $reference_photo = get_term('reference'); ?>
 
                         <div class="thumbnail-overlay">
 

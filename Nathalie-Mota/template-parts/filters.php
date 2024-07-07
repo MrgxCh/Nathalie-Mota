@@ -1,4 +1,4 @@
-<!-- Section | Filtres -->
+<!-- CONTENT: Filtres -->
 <div class="filters-and-sort">
     <!-- Filtre | Categorie -->
     <label for="category-filter"></label>

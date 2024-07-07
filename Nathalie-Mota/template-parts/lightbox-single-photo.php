@@ -1,7 +1,7 @@
 <?php $single_post_id = get_the_ID(); ?>
 
 <div class="gallerie-single">
-    <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+<?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
     <div class="lightbox-single">
         <div class="icon-oeil">
             <a href="<?php the_permalink(); ?>">
@@ -37,3 +37,6 @@
             </div>
         </div>
     </div>
+
+
+    <?php get_template_part('/template-parts/lightbox');?>

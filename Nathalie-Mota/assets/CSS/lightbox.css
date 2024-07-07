@@ -1,3 +1,5 @@
+/*CONTENT: HOVER IMAGE PAGE ACCUEIL*/
+
 .thumbnail-overlay {
     position: absolute;
     top: 0;
@@ -35,16 +37,18 @@
     object-fit: contain;
     left: 89%;
     top: 2%;
+    cursor: pointer;
 }
 
-.photo-info{
+.photo-info {
     flex-direction: row;
     display: flex;
     width: 90%;
     justify-content: space-between;
 }
 
-.photo-info-left, .photo-info-right{
+.photo-info-left,
+.photo-info-right {
     color: white;
     font-family: "Space Mono";
     font-size: 13px;
@@ -52,41 +56,122 @@
     margin-top: 85%;
 }
 
+
+/*CONTENT: LIGHTBOX FULLSCREEN*/
+
+.lightbox-overlay {
+    position: fixed;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* The Close Button */
+.close-lightbox {
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    right: 0;
+    margin-right: 20%;
+    margin-top: 5vw;
+  }
+
+  .navigation-photo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 37vw;
+    width: 100%;
+    margin-top: 5%;
+  }
+
+  .arrow-left, .arrow-right{
+    cursor: pointer;
+    color: white;
+    font-family: "Space Mono";
+    opacity: 0.8;
+  }
+
+  .arrow-left{
+    margin-right: 20%;
+  }
+
+  .arrow-left:hover, .arrow-right:hover{
+    color: white;
+    font-weight: bold;
+    opacity: 1;
+  }
+
+  .lightbox-photo{
+    position: relative;
+    width: 100%;
+    height: 100%
+  }
+
+  #lightbox-image{
+    top: 3vw;
+    left: 25.2vw;
+    width: 50vw;
+    height: 43vw;
+    object-fit: contain;
+    position: absolute;
+  }
+
+  .lightbox-reference{
+    color: white;
+    display: flex;
+    margin-left: 34%;
+    margin-top: 6%;
+  }
+
 /*RESPONSIVE LIGHTBOX*/
-@media screen and (max-width: 768px) and (min-width: 621px){
-    
-.thumbnail-overlay {
-    width: 87.5%;
-    height: 95.3%;
-    margin-left: 6.3%;
-    justify-content: flex-end;
-}
+@media screen and (max-width: 768px) and (min-width: 621px) {
 
-.icon-eye img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    position: absolute;
-    top: 42%;
-    left: 45%;
-}
+    /*RESPONSIVE HOVER PAGE ACCUEIL*/
+    .thumbnail-overlay {
+        width: 87.5%;
+        height: 95.3%;
+        margin-left: 6.3%;
+        justify-content: flex-end;
+    }
 
-.icon-fullscreen img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    position: absolute;
-    left: 91%;
-    top: 2%;
-}
+    .icon-eye img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        position: absolute;
+        top: 42%;
+        left: 45%;
+    }
 
-.photo-info{
-    width: 85%;
-}
+    .icon-fullscreen img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        position: absolute;
+        left: 91%;
+        top: 2%;
+    }
 
-.photo-info-left, .photo-info-right{
-    margin-top: 76%;
-}
+    .photo-info {
+        width: 85%;
+    }
+
+    .photo-info-left,
+    .photo-info-right {
+        margin-top: 76%;
+    }
 }
 
 @media screen and (max-width:620px) {
@@ -96,7 +181,7 @@
         margin-left: 5.8%;
         justify-content: flex-end;
     }
-    
+
     .icon-eye img {
         width: 9vw;
         height: 9vw;
@@ -105,7 +190,7 @@
         top: 42%;
         left: 45%;
     }
-    
+
     .icon-fullscreen img {
         width: 9vw;
         height: 9vw;
@@ -114,13 +199,16 @@
         top: 3%;
         position: absolute;
     }
-    
-    .photo-info{
+
+    .photo-info {
         width: 85%;
     }
-    
-    .photo-info-left, .photo-info-right{
+
+    .photo-info-left,
+    .photo-info-right {
         margin-top: 61%;
         font-size: 0.7em;
     }
+
+    /*CONTENT: LIGHTBOX*/
 }

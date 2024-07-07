@@ -1,20 +1,17 @@
 @charset "UTF-8";
-
 /*
 Theme Name: Nathalie-Mota
-Theme URI: https://wordpress.org/themes/Nathalie-Mota/
 Author: MrgxCh
-Author URI: https://wordpress.org/
-Description: Nathalie-Mota est un site pour une photographe professionnelle dans l’événementiel. 
-Requires at least: 5.3
-Text Domain: Nathalie-Mota
 */
 
 /*HEADER AND FOOTER*/
 
 /*header container*/
+.nav{
+    display: none;
+}
+
 #site-header {
-    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 3.5vw;
@@ -31,6 +28,7 @@ Text Domain: Nathalie-Mota
     align-items: center;
     justify-content: center;
     height: 3vw;
+    width: 100%;
     border-top: 1px solid black;
 }
 
@@ -48,7 +46,7 @@ Text Domain: Nathalie-Mota
     list-style: none;
     font-family: "Space Mono", monospace;
     margin-right: 60px;
-    font-size: 1.9vh;
+    font-size: 1vw;
     text-align: left;
     font-weight: 400;
     background-color: transparent;
@@ -225,12 +223,12 @@ form label {
         width: 100%;
     }
 
-    #menu-main {
+    .navigation {
         display: none;
     }
 
     #site-footer {
-        display: flex;
+        align-items: center;
         height: 120px;
         width: 100%;
     }
@@ -248,88 +246,90 @@ form label {
     .navigation li,
     .navigation-footer li,
     #myBtn {
-        font-size: 2.5vw;
+        font-size: 1.5vh;
 
     }
 
     .logo img {
-        width: 35vw;
+        width: 40vw;
     }
 
     /*MOBILE BURGER*/
-   /**  BURGER MENU  */
-  
+    /**  BURGER MENU  */
 
+    .container-menu {
+        display: inline-block;
+        cursor: pointer;
+    }
 
-   .burger-menu {
-    position: relative;
-  }
-  
-  .burger-menu__button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-  }
-  
-  .burger-menu__icon {
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    position: relative;
-  }
-  
-  .burger-menu__icon::before,
-  .burger-menu__icon::after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    transition: transform 0.3s ease;
-  }
-  
-  .burger-menu__icon::before {
-    top: -10px;
-  }
-  
-  .burger-menu__icon::after {
-    top: 10px;
-  }
-  
-  .burger-menu__list {
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .burger-menu--active .burger-menu__list {
-    display: block;
-  }
-  
-  .burger-menu--active .burger-menu__icon {
-    background-color: transparent;
-  }
-  
-  .burger-menu--active .burger-menu__icon::before {
-    transform: rotate(45deg);
-    top: 0;
-  }
-  
-  .burger-menu--active .burger-menu__icon::after {
-    transform: rotate(-45deg);
-    top: 0;
-  }
-  
+    .bar1,
+    .bar2,
+    .bar3 {
+        width: 8vw;
+        height: 3px;
+        margin: 6px 0;
+        background-color: black;
+        transition: 0.4s;
+        border-radius: 5px;
+    }
+
+    .change .bar1 {
+        transform: translate(0, 10px) rotate(-55deg);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        transform: translate(0, -7px) rotate(55deg);
+    }
+
+    .nav {
+        display: none;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    /*MENU MOBILE*/
+
+    .nav-menu{
+        position: absolute;
+        top: 70%;
+        right: 0;
+        width: 100%;
+        height: 512px;
+        z-index: 1;
+        background-color: #E00000;
+        list-style: none;
+    }
+
+    .nav-menu li{
+        position: relative;
+        top: 17%;
+        margin-top: 8%;
+        margin-left: 27%;
+    }
+
+    .nav-menu a{
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+        font-family: "Space Mono";
+        margin-top: 5vw;
+    }
+
 
     /*RESPONSIVE CONTACT FORM*/
+    .modal {
+        padding-top: 50px;
+    }
+
     .modal-content {
+        position: relative;
         width: 70%;
         height: 84%;
+        z-index: 2;
     }
 
     form label {
@@ -342,17 +342,20 @@ form label {
     .wpcf7-text,
     .wpcf7-textarea,
     .wpcf7-submit {
-        margin-left: 12vw;
+        margin-left: 9vw;
+        width: 50vw;
+        height: 6vw;
     }
 
     .modal-content textarea {
-        height: 149px;
+        height: 20vw;
+        width: 50vw;
     }
 
     /* HERO HEADER */
     .hero-header img {
         width: 100%;
-        height: 300px;
+        height: 400px;
         overflow: hidden;
         object-fit: cover;
     }
@@ -361,7 +364,6 @@ form label {
         font-size: 8.4vw;
         align-items: center;
         -webkit-text-stroke: 3px white;
-        /* voir pour mettre en auto et pas en px titre */
     }
 
 }
