@@ -1,4 +1,5 @@
-<?php function load_more_posts() {
+<?php function load_more_posts()
+{
     $response = array(
         'success' => false,
         'data' => '',
@@ -46,12 +47,12 @@
         ob_start();
 
         //Container pour articles, affiche les 8 derniers articles
-        if ($custom_posts_query->have_posts()) :
-            while ($custom_posts_query->have_posts()) :
+        if ($custom_posts_query->have_posts()):
+            while ($custom_posts_query->have_posts()):
                 $custom_posts_query->the_post();
                 ?>
                 <div class="article-container">
-                    <?php if (has_post_thumbnail()) : ?>
+                    <?php if (has_post_thumbnail()): ?>
                         <div class="photos-container">
                             <?php the_post_thumbnail(); ?>
                             <!-- Section | hover lightbox -->
@@ -68,7 +69,9 @@
                                 <!-- trigger open lightbox -->
 
                                 <div class="icon-fullscreen open-lightbox-trigger">
-                                    <img class="zoom lightbox-photo" src="<?php echo get_template_directory_uri() . '/images/icon-fullscreen.png'; ?>" data-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>">
+                                    <img class="zoom lightbox-photo"
+                                        src="<?php echo get_template_directory_uri() . '/images/icon-fullscreen.png'; ?>"
+                                        data-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>">
                                 </div>
 
                                 <?php
@@ -96,14 +99,103 @@
                         </div>
                     <?php endif; ?>
                 </div>
-            <?php
+
+                <?php $id = get_the_ID(); ?>
+
+                <!-- Trigger to open the lightbox -->
+
+                <div id="lightbox-gallery" class="lightbox-overlay">
+                    <span class="close-lightbox">&times;</span>
+                    <div class="lightbox-content">
+                        <img src="" alt="lightbox-image" id="lightbox-image">
+
+                        <!-- Lightbox infos -->
+                        <div class="lightbox-infos">
+                            <p class="lightbox-reference"><?php echo get_field('reference', $id); ?></p>
+                            <p class="lightbox-categorie"><?php echo strip_tags(get_the_term_list($id, 'categorie_photo')); ?>
+                            </p>
+                        </div>
+
+                        <!-- Next and previous arrows -->
+                        <div class="navigation-photo">
+                            <span class="arrow-left">
+                                <img src="<?php echo get_template_directory_uri() . '/images/left-arrow.png'; ?>" alt="Précédent">
+                                Précédent
+                            </span>
+                            <span class="arrow-right">
+                                Suivante
+                                <img src="<?php echo get_template_directory_uri() . '/images/arrow-right.png'; ?>" alt="Next">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    jQuery(document).ready(function ($) {
+                        // Trigger la lightbox en cliquant sur icon fullscreen
+                        $('.open-lightbox-trigger').on('click', function (e) {
+                            e.preventDefault();
+                            $('#lightbox-gallery').css('display', 'block');
+
+                            const imageUrl = $(this).find('img').attr('data-image');
+                            console.log('Image URL:', imageUrl); // Vérifie l'attribut de data-image
+                            $('#lightbox-image').attr('src', imageUrl);
+
+                            currentIndex = $(this).index('.open-lightbox-trigger');
+                        });
+
+                        // Gestion de la fermeture de la lightbox en cliquant sur le bouton(span x)
+                        $('.close-lightbox, #lightbox-gallery').on('click', function (e) {
+                            $('#lightbox-gallery').css('display', 'none');
+                        });
+
+                        // Empêche la lightbox de se fermer en cliquant sur un élément de la lightbox
+                        $('.lightbox-content').on('click', function (e) {
+                            e.stopPropagation();
+                        });
+
+                        /*IMAGES*/
+                        let currentIndex = 0;
+                        const images = $('.open-lightbox-trigger');
+
+                        // Image suivante lorsqu'on clique sur la flèche droite
+                        $('.arrow-right').on('click', function () {
+                            currentIndex = (currentIndex + 1) % images.length;
+                            updateLightboxImage();
+                        });
+
+                        // Image précédente lorsqu'on clique sur la flèche gauche
+                        $('.arrow-left').on('click', function () {
+                            currentIndex = (currentIndex - 1 + images.length) % images.length;
+                            updateLightboxImage();
+                        });
+
+                        //Récupère image
+                        function updateLightboxImage() {
+                            const currentImage = images.eq(currentIndex);
+                            const imageUrl = currentImage.find('img').attr('data-image');
+                            console.log('Navigated Image URL:', imageUrl); // Vérifie l'attribut de data-image
+                            $('#lightbox-image').attr('src', imageUrl);
+                        }
+
+                        $('a[href$=".webp"]').on('click', function (e) {
+                            e.preventDefault();
+                            $('#lightbox-gallery').css('display', 'block');
+
+                            const imageUrl = $(this).attr('href');
+                            console.log('WEBP Image URL:', imageUrl); // Vérifie le href de l'image
+                            $('#lightbox-image').attr('src', imageUrl);
+                        });
+                    });
+                </script>
+                <?php
             endwhile;
             $response['success'] = true;//Affiche les posts
-        else :
+        else:
             $response['message'] = 'No more posts';//Message erreur
         endif;
 
         $response['data'] = ob_get_clean();
+
     } catch (Exception $e) {
         $response['message'] = $e->getMessage();
     }
@@ -113,5 +205,4 @@
 }
 
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
-add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');?>
-
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts'); ?>

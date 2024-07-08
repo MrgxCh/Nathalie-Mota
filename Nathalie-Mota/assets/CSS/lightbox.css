@@ -59,6 +59,7 @@
 
 /*CONTENT: LIGHTBOX FULLSCREEN*/
 
+/*Modal fond*/
 .lightbox-overlay {
     position: fixed;
     z-index: 4;
@@ -67,7 +68,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     display: none;
     align-items: center;
     justify-content: center;
@@ -84,56 +85,70 @@
     cursor: pointer;
     right: 0;
     margin-right: 20%;
-    margin-top: 5vw;
-  }
+    margin-top: 4vw;
+}
 
-  .navigation-photo{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 37vw;
-    width: 100%;
-    margin-top: 5%;
-  }
+/*flèches*/
 
-  .arrow-left, .arrow-right{
+
+.arrow-left,
+.arrow-right {
     cursor: pointer;
     color: white;
     font-family: "Space Mono";
     opacity: 0.8;
-  }
+}
 
-  .arrow-left{
-    margin-right: 20%;
-  }
+.arrow-left {
+    margin-right: 30%;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+}
 
-  .arrow-left:hover, .arrow-right:hover{
+.arrow-right {
+    margin-left: 30%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
     color: white;
     font-weight: bold;
     opacity: 1;
-  }
+}
 
-  .lightbox-photo{
-    position: relative;
-    width: 100%;
-    height: 100%
-  }
+/*image*/
 
-  #lightbox-image{
+#lightbox-image {
     top: 3vw;
     left: 25.2vw;
     width: 50vw;
-    height: 43vw;
+    height: 40vw;
     object-fit: contain;
     position: absolute;
-  }
+}
 
-  .lightbox-reference{
+/*lightbox référence | catégorie*/
+
+.lightbox-infos {
+    display: flex;
+    margin-left: 4vw;
+    width: 93vw;
+    height: 45vw;
+    justify-content: space-evenly;
+    font-family: "Space Mono";
+    align-items: flex-end;
+    text-align: center;
+}
+
+.lightbox-reference,
+.lightbox-categorie {
     color: white;
     display: flex;
-    margin-left: 34%;
-    margin-top: 6%;
-  }
+}
 
 /*RESPONSIVE LIGHTBOX*/
 @media screen and (max-width: 768px) and (min-width: 621px) {
@@ -209,6 +224,32 @@
         margin-top: 61%;
         font-size: 0.7em;
     }
+}
 
-    /*CONTENT: LIGHTBOX*/
+@media screen and (max-width:1155px) and (min-width:768px) {
+    /*CONTENT: LIGHTBOX FULLSCREEN*/
+
+.arrow-left, .arrow-right{
+    top: 40%;
+}
+
+#lightbox-image{
+    top: 8vw;
+    width: 58vw;
+    height: 60vw;
+    left: 21vw;
+}
+
+.lightbox-infos {
+    display: flex;
+    margin-left: 2vw;
+    height: 74vw;
+}
+}
+
+@media screen and (max-width:768px) {
+    .icon-fullscreen{
+        display: none;
+    }
+    
 }

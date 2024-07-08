@@ -1,7 +1,7 @@
 <?php $single_post_id = get_the_ID(); ?>
 
 <div class="gallerie-single">
-<?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+    <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
     <div class="lightbox-single">
         <div class="icon-oeil">
             <a href="<?php the_permalink(); ?>">
@@ -9,11 +9,11 @@
             </a>
         </div>
         <div class="icon-fullscreen">
-        <a href="<?php echo get_the_post_thumbnail_url(get_the_ID(),'full'); ?>">
-            <img src="<?php echo get_template_directory_uri() . "/images/icon-fullscreen.png"; ?>"
-                alt="icon-fullscreen">
-        </a>
-    </div>
+            <a href="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>">
+                <img src="<?php echo get_template_directory_uri() . "/images/icon-fullscreen.png"; ?>"
+                    alt="icon-fullscreen">
+            </a>
+        </div>
 
         <?php
         // Récupère la référence et la catégorie de l'image associée.
@@ -37,6 +37,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
-    <?php get_template_part('/template-parts/lightbox');?>
+<?php get_template_part('/template-parts/lightbox'); ?>

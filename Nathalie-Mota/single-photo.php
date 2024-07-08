@@ -158,8 +158,10 @@ get_header(); ?>
 
 
 <!--Zone photos dans l'affichage d'un post-->
+
+<h3 class="photo-apparentes-title">VOUS AIMEREZ AUSSI</h3>
+
 <div class="photos-apparentes">
-    <h3 class="photo-apparentes-title">VOUS AIMEREZ AUSSI</h3>
 
     <!--Récupération des posts de la même catégorie grâce au slug-->
 
