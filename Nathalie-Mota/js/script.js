@@ -65,6 +65,7 @@ window.onclick = function (event) {
   }
 };
 
+//HOVER SINGLE PHOTO | NAVIGATION
 document.addEventListener('DOMContentLoaded', function() {
   // Sélection des éléments de navigation
   const arrowLeft = document.querySelector('.navigation-prev');
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     imageRight.style.display = 'none';
 });
 });
+
 
 
 //RESPONSIVE MOBILE: menu burger
