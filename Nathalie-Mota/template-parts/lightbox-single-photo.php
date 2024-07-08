@@ -8,11 +8,19 @@
                 <img src="<?php echo get_template_directory_uri() . "/images/icon_eye.png"; ?>" alt="icon-oeil">
             </a>
         </div>
-        <div class="icon-fullscreen">
-            <a href="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>">
-                <img src="<?php echo get_template_directory_uri() . "/images/icon-fullscreen.png"; ?>"
-                    alt="icon-fullscreen">
-            </a>
+
+         <!--Ouvre la lightbox-->
+        <?php
+        $reference = get_field('reference');
+        $categories = get_the_terms(get_the_ID(), 'categorie_photo');
+        $categorie_name = $categories[0]->name; ?>
+
+        <div class="icon-fullscreen open-lightbox-trigger">
+            <img class="zoom lightbox-photo"
+                src="<?php echo get_template_directory_uri() . '/images/icon-fullscreen.png'; ?>"
+                data-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>"
+                data-category="<?php echo esc_attr($categorie_name); ?>"
+                data-reference="<?php echo esc_attr($reference); ?>">
         </div>
 
         <?php
@@ -40,14 +48,21 @@
 </div>
 
 
-<?php $id = get_the_ID() ?>
-
 <!-- Trigger to open the lightbox -->
 
 <div id="lightbox-gallery" class="lightbox-overlay">
     <span class="close-lightbox">&times;</span>
     <div class="lightbox-content">
+
+        <!--Categorie et reference-->
+        <div class="lightbox-infos">
+            <span class="lightboxCategorie"></span>
+            <span class="lightboxReference"></span>
+        </div>
+
+        <!--Image url lightbox fullsreen-->
         <img src="" alt="lightbox-image" id="lightbox-image">
+
 
     </div>
 </div>

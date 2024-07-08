@@ -123,29 +123,25 @@
 /*image*/
 
 #lightbox-image {
-    top: 3vw;
-    left: 25.2vw;
-    width: 50vw;
-    height: 40vw;
+    height: fit-content;
     object-fit: contain;
-    position: absolute;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5vw;
 }
 
 /*lightbox référence | catégorie*/
 
 .lightbox-infos {
     display: flex;
-    margin-left: 4vw;
-    width: 93vw;
-    height: 45vw;
     justify-content: space-evenly;
-    font-family: "Space Mono";
-    align-items: flex-end;
-    text-align: center;
 }
 
-.lightbox-reference,
-.lightbox-categorie {
+.lightboxCategorie,
+.lightboxReference {
     color: white;
     display: flex;
 }
@@ -155,9 +151,9 @@
 
     /*RESPONSIVE HOVER PAGE ACCUEIL*/
     .thumbnail-overlay {
-        width: 87.5%;
+        width: 89.2%;
         height: 95.3%;
-        margin-left: 6.3%;
+        margin-left: 5.4%;
         justify-content: flex-end;
     }
 

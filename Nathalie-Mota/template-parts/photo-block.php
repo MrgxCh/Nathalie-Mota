@@ -30,15 +30,18 @@
                                 </a>
                             </div>
 
-                            <!--trigger open lightbox-->
+                            <!--Ouvre la lightbox-->
                             <?php 
-                            $image_id = get_the_ID();
-                            $reference = get_field('reference', $image_id);?>
+                            $reference = get_field('reference');
+                            $categories = get_the_terms(get_the_ID(), 'categorie_photo');
+                            $categorie_name = $categories[0]->name; ?>
 
                             <div class="icon-fullscreen open-lightbox-trigger">
                                 <img class="zoom lightbox-photo"
                                     src="<?php echo get_template_directory_uri() . '/images/icon-fullscreen.png'; ?>"
-                                    data-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>">
+                                    data-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>"
+                                    data-category="<?php echo esc_attr($categorie_name); ?>"
+                                    data-reference="<?php echo esc_attr($reference); ?>">
                             </div>
 
                             <?php
@@ -80,4 +83,3 @@
 
 <?php get_template_part('/assets/includes/ajax.php'); ?>
 <?php get_template_part('template-parts/lightbox'); ?>
-
