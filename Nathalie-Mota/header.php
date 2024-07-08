@@ -46,12 +46,6 @@ if
 				</a>
 			</div>
 
-			<!--Navigation menu desktop-->
-			<nav class="navigation">
-
-			<?php wp_nav_menu(array('theme_location' => 'main'));?>
-			</nav>
-
 			<!-- Menu burger Mobile -->
 			<div class="container-menu" onclick="Open(this)">
 				<div class="bar1"></div>
@@ -60,13 +54,21 @@ if
 			</div>
 
 			<div class="nav">
-			<?php wp_nav_menu(array(
-			'theme_location' => 'main-mobile',
-			'container' => false,
-			'menu_class' => 'nav-menu',
-			));?>
+				<?php wp_nav_menu(
+					array(
+						'theme_location' => 'main-mobile',
+						'container' => false,
+						'menu_class' => 'nav-menu',
+					)
+				); ?>
 			</div>
-			</div>
+
+			<!--Navigation menu desktop-->
+			<nav class="navigation">
+
+				<?php wp_nav_menu(array('theme_location' => 'main')); ?>
+			</nav>
+		</div>
 
 
 	</header>
