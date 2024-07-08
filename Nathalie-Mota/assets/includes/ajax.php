@@ -109,13 +109,6 @@
                     <div class="lightbox-content">
                         <img src="" alt="lightbox-image" id="lightbox-image">
 
-                        <!-- Lightbox infos -->
-                        <div class="lightbox-infos">
-                            <p class="lightbox-reference"><?php echo get_field('reference', $id); ?></p>
-                            <p class="lightbox-categorie"><?php echo strip_tags(get_the_term_list($id, 'categorie_photo')); ?>
-                            </p>
-                        </div>
-
                         <!-- Next and previous arrows -->
                         <div class="navigation-photo">
                             <span class="arrow-left">

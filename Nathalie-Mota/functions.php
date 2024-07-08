@@ -45,6 +45,7 @@ add_action('wp_enqueue_scripts', 'enqueue_infinite_pagination_js');
 function register_my_menus()
 {
 	register_nav_menu('main', __('Menu principal', 'text-domain'));
+	register_nav_menu('main-mobile', __('Mobile Menu', 'text-domain'));
 	register_nav_menu('footer', __('Footer', 'text-domain'));
 }
 add_action('after_setup_theme', 'register_my_menus');

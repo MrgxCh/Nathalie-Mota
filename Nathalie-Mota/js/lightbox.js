@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
         $('#lightbox-image').attr('src', imageUrl);
 
         currentIndex = $(this).index('.open-lightbox-trigger');
-        updateLightboxInfos($(this)); // Update lightbox info
     });
 
     // Gestion de la fermeture de la lightbox en cliquant sur le bouton(span x)
@@ -22,7 +21,7 @@ jQuery(document).ready(function ($) {
         e.stopPropagation();
     });
 
-    //IMAGES
+    /*IMAGES*/
     let currentIndex = 0;
     const images = $('.open-lightbox-trigger');
 
@@ -44,21 +43,6 @@ jQuery(document).ready(function ($) {
         const imageUrl = currentImage.find('img').attr('data-image');
         console.log('Navigated Image URL:', imageUrl); // Debugging line
         $('#lightbox-image').attr('src', imageUrl);
-
-        updateLightboxInfos(currentImage); // Update lightbox info
-    }
-
-    //Récupère catégorie et référence
-    function updateLightboxInfos() {
-
-        console.log('Reference:', reference); // Debugging line
-        console.log('Categorie:', categorie);   // Debugging line
-
-        $('.lightbox-reference').text(reference);
-        $('.lightbox-categorie').text(categorie);
-
-        const reference = link.querySelector('.photo-info-left').textContent;
-        const categorie = link.querySelector('.photo-info-right').textContent;
     }
 
     //Gère les liens webp
@@ -69,8 +53,5 @@ jQuery(document).ready(function ($) {
         const imageUrl = $(this).attr('href');
         console.log('WEBP Image URL:', imageUrl); // Vérifie le href de l'image
         $('#lightbox-image').attr('src', imageUrl);
-
-        // Mettre à jour les infos pour les images webp si nécessaire
-        updateLightboxInfos($(this));
     });
 });

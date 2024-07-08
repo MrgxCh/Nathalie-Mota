@@ -18,6 +18,28 @@ window.onclick = function (event) {
   }
 }
 
+
+//MODAL CONTACT - MOBILE MENU
+//MODALE CONTACT
+
+const mobileModal = document.getElementById('myModal');
+const mobileBtn = document.getElementById("menu-item-363");
+const mobileSpan = document.getElementsByClassName("close")[0];
+
+mobileBtn.onclick = function () {
+  mobileModal.style.display = "block";
+}
+
+mobileSpan.onclick = function () {
+  mobileModal.style.display = "none";
+}
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    mobileModal.style.display = "none";
+  }
+}
+
 // MODAL CONTACT - SINGLE-PHOTO
 const photomodal = document.getElementById('myModal');
 const photoBtn = document.getElementById('button-contact-photo');
