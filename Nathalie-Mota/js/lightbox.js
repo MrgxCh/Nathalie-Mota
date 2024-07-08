@@ -22,11 +22,10 @@ jQuery(document).ready(function ($) {
         e.stopPropagation();
     });
 
-
-    /*IMAGES*/
+    //IMAGES
     let currentIndex = 0;
     const images = $('.open-lightbox-trigger');
-   
+
     // Image suivante lorsqu'on clique sur la flèche droite
     $('.arrow-right').on('click', function () {
         currentIndex = (currentIndex + 1) % images.length;
@@ -38,43 +37,28 @@ jQuery(document).ready(function ($) {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         updateLightboxImage();
     });
-    
-    //Récupère image
+
+    //Récupère image et met à jour les informations de la lightbox
     function updateLightboxImage() {
         const currentImage = images.eq(currentIndex);
         const imageUrl = currentImage.find('img').attr('data-image');
-        console.log('Navigated Image URL:', imageUrl); // Vérifie l'attribut de data-image
-        $('#lightbox-image').attr('src', imageUrl);
-
-        updateLightboxInfos(currentImage); // Update lightbox inf
-    }
-
-    //Récupère catégorie et référence
-
-    function updateLightboxImage() {
-        const currentImage = images.eq(currentIndex);
-        const imageUrl = currentImage.find('img').attr('data-image');
-        const reference = currentImage.data('reference');
-        const category = currentImage.data('category');
-    
         console.log('Navigated Image URL:', imageUrl); // Debugging line
-        console.log('Navigated Reference:', reference); // Debugging line
-        console.log('Navigated Category:', category); // Debugging line
-    
         $('#lightbox-image').attr('src', imageUrl);
-    
+
         updateLightboxInfos(currentImage); // Update lightbox info
     }
 
-    function updateLightboxInfos(element) {
-        const reference = element.attr('data-reference');
-        const category = element.attr('data-category');
+    //Récupère catégorie et référence
+    function updateLightboxInfos() {
 
         console.log('Reference:', reference); // Debugging line
-        console.log('Category:', category);   // Debugging line
+        console.log('Categorie:', categorie);   // Debugging line
 
         $('.lightbox-reference').text(reference);
-        $('.lightbox-categorie').text(category);
+        $('.lightbox-categorie').text(categorie);
+
+        const reference = link.querySelector('.photo-info-left').textContent;
+        const categorie = link.querySelector('.photo-info-right').textContent;
     }
 
     //Gère les liens webp
@@ -85,5 +69,8 @@ jQuery(document).ready(function ($) {
         const imageUrl = $(this).attr('href');
         console.log('WEBP Image URL:', imageUrl); // Vérifie le href de l'image
         $('#lightbox-image').attr('src', imageUrl);
+
+        // Mettre à jour les infos pour les images webp si nécessaire
+        updateLightboxInfos($(this));
     });
 });

@@ -51,9 +51,9 @@
     color: #23282d;
     font-weight: 500;
     font-size: 3vw;
-    line-height: 40px;
+    line-height: 1em;
     width: 59%;
-    height: 4vw;
+    height: 2em;
 }
 
 
@@ -96,12 +96,21 @@
     color: white;
 }
 
-.site-navigation-prev{
-    margin-right: 1vw;
+.navigation-photos{
+    width: 10.5vw;
+    display: flex;
 }
 
-.navigation-next{
-    margin-left: 1.5vw;
+.site-navigation-prev{
+    margin-left: 3vw;
+}
+
+.site-navigation-next{
+    margin-left: 2vw;
+}
+
+.image-prev, .image-next{
+    display: none;
 }
 
 /*CONTENT: PHOTOS APPARENTÉS*/

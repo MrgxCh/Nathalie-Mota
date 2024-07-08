@@ -1,4 +1,4 @@
-<?php $id = get_the_ID(); ?>
+<?php $id = get_the_ID() ?>
 
 <!-- Trigger to open the lightbox -->
 
@@ -9,8 +9,8 @@
 
          <!-- Lightbox infos -->
          <div class="lightbox-infos">
-            <p class="lightbox-reference"><?php echo get_field('reference', get_the_ID()); ?></p>
-            <p class="lightbox-categorie"><?php echo get_taxonomy(get_the_term_list(get_the_ID(), 'categorie_photo')); ?></p>
+            <p class="lightbox-reference"><?php echo get_field('reference', $id) ?></p>
+            <p class="lightbox-categorie"><?php echo get_the_terms($id, 'categorie_photo')[0]->name  ?></p>
         </div>
 
         <!-- Next and previous arrows -->

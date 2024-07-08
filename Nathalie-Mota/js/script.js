@@ -43,6 +43,32 @@ window.onclick = function (event) {
   }
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Sélection des éléments de navigation
+  const arrowLeft = document.querySelector('.navigation-prev');
+  const imageLeft = document.querySelector('.image-prev');
+  const arrowRight = document.querySelector('.navigation-next');
+  const imageRight = document.querySelector('.image-next');
+
+  // Événement mouseenter pour afficher l'image au survol
+  arrowLeft.addEventListener('mouseenter', function() {
+      imageLeft.style.display = 'flex';
+  });
+
+  arrowRight.addEventListener('mouseenter', function() {
+    imageRight.style.display = 'flex';
+});
+
+  // Événement mouseleave pour cacher l'image lorsque le survol est terminé
+  arrowLeft.addEventListener('mouseleave', function() {
+      imageLeft.style.display = 'none';
+  });
+
+  arrowRight.addEventListener('mouseleave', function() {
+    imageRight.style.display = 'none';
+});
+});
+
 
 //RESPONSIVE MOBILE: menu burger
 

@@ -118,41 +118,43 @@ get_header(); ?>
     ?>
 
     <!--Bouton navigation précédente-->
-    <div class="site-navigation-prev">
-        <?php
-        $prev_post = get_previous_post();
-        if ($prev_post) {
-            $prev_title = strip_tags(str_replace('"', '', $prev_post->post_title));
-            $prev_post_id = $prev_post->ID;
-            echo '<a rel="prev" href="' . get_permalink($prev_post_id) . '" title="' . $prev_title . '" class="previous-post">';
-            if (has_post_thumbnail($prev_post_id)) {
-                ?>
-                <div>
-                    <?php echo get_the_post_thumbnail($prev_post_id, array(77, 60)); ?>
-                </div>
-                <?php
-                echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-gauche.png" alt="article précédent"  class="navigation-prev"></a>';
-            }
-        } ?>
-    </div>
+    <div class="navigation-photos">
+        <div class="site-navigation-prev">
+            <?php
+            $prev_post = get_previous_post();
+            if ($prev_post) {
+                $prev_title = strip_tags(str_replace('"', '', $prev_post->post_title));
+                $prev_post_id = $prev_post->ID;
+                echo '<a rel="prev" href="' . get_permalink($prev_post_id) . '" title="' . $prev_title . '" class="previous-post">';
+                if (has_post_thumbnail($prev_post_id)) {
+                    ?>
+                    <div class="image-prev">
+                        <?php echo get_the_post_thumbnail($prev_post_id, array(77, 60)); ?>
+                    </div>
+                    <?php
+                    echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-gauche.png" alt="article précédent"  class="navigation-prev"></a>';
+                }
+            } ?>
+        </div>
 
-    <!--Bouton navigation suivante-->
-    <div class="site-navigation-next">
-        <!-- next_post_link( '%link', '%title', false );  -->
-        <?php
-        $next_post = get_next_post();
-        if ($next_post) {
-            $next_title = strip_tags(str_replace('"', '', $next_post->post_title));
-            $next_post_id = $next_post->ID;
-            echo '<a rel="next" href="' . get_permalink($next_post_id) . '" title="' . $next_title . '" class="next-post">';
-            if (has_post_thumbnail($next_post_id)) {
-                ?>
-                <div><?php echo get_the_post_thumbnail($next_post_id, array(77, 60)); ?></div>
-                <?php
+        <!--Bouton navigation suivante-->
+        <div class="site-navigation-next">
+            <!-- next_post_link( '%link', '%title', false );  -->
+            <?php
+            $next_post = get_next_post();
+            if ($next_post) {
+                $next_title = strip_tags(str_replace('"', '', $next_post->post_title));
+                $next_post_id = $next_post->ID;
+                echo '<a rel="next" href="' . get_permalink($next_post_id) . '" title="' . $next_title . '" class="next-post">';
+                if (has_post_thumbnail($next_post_id)) {
+                    ?>
+                    <div class="image-next"><?php echo get_the_post_thumbnail($next_post_id, array(77, 60)); ?></div>
+                    <?php
+                }
+                echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-droite.png" alt="article suivante" class="navigation-next"></a>';
             }
-            echo '<img src="' . get_stylesheet_directory_uri() . '/images/fleche-droite.png" alt="article suivante" class="navigation-next"></a>';
-        }
-        ?>
+            ?>
+        </div>
     </div>
 </div>
 
@@ -197,7 +199,7 @@ get_header(); ?>
         if ($the_query->have_posts())
             while ($the_query->have_posts()) {
                 $the_query->the_post(); ?>
-                <?php get_template_part('template-parts/lightbox-single-photo');?>
+                <?php get_template_part('template-parts/lightbox-single-photo'); ?>
             </div>
             <?php
             }
