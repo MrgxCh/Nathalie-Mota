@@ -54,15 +54,14 @@
     <span class="close-lightbox">&times;</span>
     <div class="lightbox-content">
 
-        <!--Categorie et reference-->
-        <div class="lightbox-infos">
-            <span class="lightboxCategorie"></span>
-            <span class="lightboxReference"></span>
-        </div>
-
         <!--Image url lightbox fullsreen-->
         <img src="" alt="lightbox-image" id="lightbox-image">
 
+         <!--Categorie et reference-->
+         <div class="lightbox-infos">
+            <span class="lightboxCategorie"></span>
+            <span class="lightboxReference"></span>
+        </div>
 
     </div>
 </div>

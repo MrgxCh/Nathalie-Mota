@@ -100,14 +100,20 @@
                     <?php endif; ?>
                 </div>
 
-                <?php $id = get_the_ID(); ?>
-
                 <!-- Trigger to open the lightbox -->
 
                 <div id="lightbox-gallery" class="lightbox-overlay">
                     <span class="close-lightbox">&times;</span>
                     <div class="lightbox-content">
+
+                        <!--Image url lightbox fullsreen-->
                         <img src="" alt="lightbox-image" id="lightbox-image">
+
+                        <!--Categorie et reference-->
+                        <div class="lightbox-infos">
+                            <span class="lightboxReference"></span>
+                            <span class="lightboxCategorie"></span>
+                        </div>
 
                         <!-- Next and previous arrows -->
                         <div class="navigation-photo">
@@ -120,65 +126,90 @@
                                 <img src="<?php echo get_template_directory_uri() . '/images/arrow-right.png'; ?>" alt="Next">
                             </span>
                         </div>
+
+
                     </div>
                 </div>
                 <script>
                     jQuery(document).ready(function ($) {
-                        // Trigger la lightbox en cliquant sur icon fullscreen
+                        var $lightboxCategory = $('.lightboxCategorie');
+                        var $lightboxReference = $('.lightboxReference');
+                        var currentIndex = 0;
+                        var images = $('.open-lightbox-trigger');
+
+                        // Ouvre la lightbox lorsqu'on clique sur l'icône fullscreen
                         $('.open-lightbox-trigger').on('click', function (e) {
                             e.preventDefault();
                             $('#lightbox-gallery').css('display', 'block');
 
                             const imageUrl = $(this).find('img').attr('data-image');
-                            console.log('Image URL:', imageUrl); // Vérifie l'attribut de data-image
                             $('#lightbox-image').attr('src', imageUrl);
 
+                            // Récupère les données de catégorie et référence
+                            var categoryText = $(this).find('img').data('category').toUpperCase();
+                            var referenceText = $(this).find('img').data('reference');
+
+                            // Met à jour les éléments HTML avec les valeurs récupérées
+                            $lightboxCategory.text(categoryText);
+                            $lightboxReference.text(referenceText);
+
+                            // Détermine l'index de l'image actuelle
                             currentIndex = $(this).index('.open-lightbox-trigger');
                         });
 
-                        // Gestion de la fermeture de la lightbox en cliquant sur le bouton(span x)
+                        // Ferme la lightbox en cliquant sur le bouton de fermeture (X) ou en dehors de la lightbox
                         $('.close-lightbox, #lightbox-gallery').on('click', function (e) {
                             $('#lightbox-gallery').css('display', 'none');
                         });
 
-                        // Empêche la lightbox de se fermer en cliquant sur un élément de la lightbox
+                        // Empêche la propagation du clic dans la lightbox
                         $('.lightbox-content').on('click', function (e) {
                             e.stopPropagation();
                         });
 
-                        /*IMAGES*/
-                        let currentIndex = 0;
-                        const images = $('.open-lightbox-trigger');
-
-                        // Image suivante lorsqu'on clique sur la flèche droite
+                        // Navigation vers l'image suivante lorsqu'on clique sur la flèche droite
                         $('.arrow-right').on('click', function () {
                             currentIndex = (currentIndex + 1) % images.length;
                             updateLightboxImage();
                         });
 
-                        // Image précédente lorsqu'on clique sur la flèche gauche
+                        // Navigation vers l'image précédente lorsqu'on clique sur la flèche gauche
                         $('.arrow-left').on('click', function () {
                             currentIndex = (currentIndex - 1 + images.length) % images.length;
                             updateLightboxImage();
                         });
 
-                        //Récupère image
+                        // Met à jour l'image et les informations de la lightbox
                         function updateLightboxImage() {
                             const currentImage = images.eq(currentIndex);
                             const imageUrl = currentImage.find('img').attr('data-image');
-                            console.log('Navigated Image URL:', imageUrl); // Vérifie l'attribut de data-image
                             $('#lightbox-image').attr('src', imageUrl);
+
+                            var categoryText = currentImage.find('img').data('category').toUpperCase();
+                            var referenceText = currentImage.find('img').data('reference');
+
+                            $lightboxCategory.text(categoryText);
+                            $lightboxReference.text(referenceText);
                         }
 
+                        // Gère les liens webp
                         $('a[href$=".webp"]').on('click', function (e) {
                             e.preventDefault();
                             $('#lightbox-gallery').css('display', 'block');
 
                             const imageUrl = $(this).attr('href');
-                            console.log('WEBP Image URL:', imageUrl); // Vérifie le href de l'image
                             $('#lightbox-image').attr('src', imageUrl);
+
+                            var categoryText = $(this).find('img').data('category').toUpperCase();
+                            var referenceText = $(this).find('img').data('reference');
+
+                            $lightboxCategory.text(categoryText);
+                            $lightboxReference.text(referenceText);
+
+                            currentIndex = $(this).index('a[href$=".webp"]');
                         });
                     });
+
                 </script>
                 <?php
             endwhile;
